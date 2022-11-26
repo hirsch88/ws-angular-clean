@@ -10,8 +10,8 @@ import { BalCoreModule } from '@baloise/design-system-components-angular'
 
 import { AppComponent } from './app/app.component'
 import { routes } from './app/router/routes'
-import { counterReducer } from './app/stores/counter.reducer'
 import { environment } from './environments/environment'
+import { reducers, storeDevtoolsOptions } from './app/stores'
 
 if (environment.production) {
   enableProdMode()
@@ -25,16 +25,25 @@ export function HttpLoaderFactory(http: HttpClient) {
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
+    /**
+     * Our router, which sync URLs to views in your app.
+     * To define a new route open the src/router folder.
+     */
     provideRouter(routes),
+    /**
+     * Define the Baloise Design System specifics.
+     */
     importProvidersFrom(BalCoreModule.forRoot()),
-    importProvidersFrom(StoreModule.forRoot({ count: counterReducer })),
-    importProvidersFrom(
-      StoreDevtoolsModule.instrument({
-        maxAge: 25, // Retains last 25 states
-        logOnly: environment.production, // Restrict extension to log-only mode
-        autoPause: true, // Pauses recording actions and state changes when the extension window is not open
-      }),
-    ),
+    /**
+     * Share data across your components with ngrx-store.
+     * Create new stores in the folder src/stores
+     */
+    importProvidersFrom(StoreModule.forRoot(reducers)),
+    importProvidersFrom(StoreDevtoolsModule.instrument(storeDevtoolsOptions)),
+    /**
+     * The localization plugin to support multiple locals.
+     * There are located in the assets/i18n folder.
+     */
     importProvidersFrom(
       TranslateModule.forRoot({
         defaultLanguage: 'en',

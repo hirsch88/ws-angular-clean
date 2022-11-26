@@ -3,14 +3,16 @@ import {
   ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  OnInit,
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import {
   BalButtonModule,
   BalHeadingModule,
 } from '@baloise/design-system-components-angular'
-import { TranslateModule, TranslateService } from '@ngx-translate/core'
+import { TranslateModule } from '@ngx-translate/core'
 import { HelloComponent } from './components/hello.component'
+import { I18nService } from './services/i18n.service'
 
 @Component({
   selector: 'app-root',
@@ -67,21 +69,13 @@ import { HelloComponent } from './components/hello.component'
 export class AppComponent {
   title = 'pizza-app'
 
-  constructor(private translate: TranslateService) {
-    this.translate.addLangs(['en', 'fr'])
-    this.translate.setDefaultLang('en')
-
-    const browserLang = this.translate.getBrowserLang()
-    if (browserLang) {
-      this.translate.use(browserLang.match(/en|fr/) ? browserLang : 'en')
-    }
-  }
+  constructor(private i18nService: I18nService) {}
 
   changeToEnglish() {
-    this.translate.use('en')
+    this.i18nService.use('en')
   }
 
   changeToGerman() {
-    this.translate.use('de')
+    this.i18nService.use('de')
   }
 }
