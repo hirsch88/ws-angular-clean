@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-hello',
@@ -12,5 +12,5 @@ export class HelloComponent {
   /**
    * Defines the label of the greetings
    */
-  @Input() label = 'hello';
+  @Input() label = 'hello'
 }

@@ -1,16 +1,16 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'
 import {
   ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
-} from '@angular/core';
-import { RouterModule } from '@angular/router';
+} from '@angular/core'
+import { RouterModule } from '@angular/router'
 import {
   BalButtonModule,
   BalHeadingModule,
-} from '@baloise/design-system-components-angular';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { HelloComponent } from './components/hello.component';
+} from '@baloise/design-system-components-angular'
+import { TranslateModule, TranslateService } from '@ngx-translate/core'
+import { HelloComponent } from './components/hello.component'
 
 @Component({
   selector: 'app-root',
@@ -30,7 +30,7 @@ import { HelloComponent } from './components/hello.component';
         <bal-button>{{ 'BUTTON' | translate }}</bal-button>
 
         <div class="has-background-green-3 p-large has-radius-large has-shadow">
-          Bubu
+          Hello World
         </div>
 
         <bal-button (click)="changeToGerman()">German</bal-button>
@@ -65,23 +65,23 @@ import { HelloComponent } from './components/hello.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent {
-  title = 'pizza-app';
+  title = 'pizza-app'
 
   constructor(private translate: TranslateService) {
-    this.translate.addLangs(['en', 'fr']);
-    this.translate.setDefaultLang('en');
+    this.translate.addLangs(['en', 'fr'])
+    this.translate.setDefaultLang('en')
 
-    const browserLang = this.translate.getBrowserLang();
+    const browserLang = this.translate.getBrowserLang()
     if (browserLang) {
-      this.translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+      this.translate.use(browserLang.match(/en|fr/) ? browserLang : 'en')
     }
   }
 
   changeToEnglish() {
-    this.translate.use('en');
+    this.translate.use('en')
   }
 
   changeToGerman() {
-    this.translate.use('de');
+    this.translate.use('de')
   }
 }

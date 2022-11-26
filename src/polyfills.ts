@@ -49,12 +49,14 @@
  *
  * https://medium.com/8451/600-faster-stencil-components-in-angular-d442fb87babd
  */
-(window as any).__Zone_disable_customElements = true;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+;(window as any).__Zone_disable_customElements = true
 
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js'; // Included with Angular CLI.
+import 'zone.js' // Included with Angular CLI.
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
