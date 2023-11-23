@@ -3,12 +3,8 @@
     "prettier --write",
     "cspell --gitignore"
   ],
-  "src/**/*.{ts,tsx,json}": [
-    "eslint --fix"
-  ],
-  "src/**/*.{css,scss,sass}": [
-    "stylelint"
-  ],
+  "src/**/*.{ts,tsx,json}": ["eslint --fix"],
+  "src/**/*.{css,scss,sass}": ["stylelint"],
   "cypress/**/*.{ts,json,md}": [
     "prettier --write",
     "eslint --fix",

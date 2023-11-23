@@ -1,0 +1,13 @@
+// import { PizzaApiMock } from '../../ports/__test__/mocks/PizzaApi.mock'
+// import { PizzaGetAllUseCase } from '../PizzaGetAll.case'
+
+// describe('Service: UseCase PizzaGetAll', () => {
+//   it('should load all the pizzas from the api', async () => {
+//     const useCase = new PizzaGetAllUseCase(PizzaApiMock)
+//     const result = await useCase.execute()
+
+//     expect(result.isSuccess)
+//     expect(result.value().length).toBe(2)
+//     expect(result.value()[0].name).toBe('Margherita')
+//   })
+// })

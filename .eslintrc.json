@@ -1,6 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
+  "ignorePatterns": ["projects/**/*", "src/assets/i18n/**/*"],
   "overrides": [
     {
       "files": ["*.ts"],
